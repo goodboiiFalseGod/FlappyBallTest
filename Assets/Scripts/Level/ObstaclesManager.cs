@@ -10,9 +10,9 @@ public class ObstaclesManager : MonoBehaviour
     private WorldBorders _borders;
 
     [Inject]
-    private void Construct(GameDifficultySettings gameDifficultySettings)
+    private void Construct(GameSettings gameDifficultySettings)
     {
-        _gameDifficultySettings = gameDifficultySettings;
+        _gameDifficultySettings = gameDifficultySettings.GetCurrentDifficulty();
     }
 
     public void Init(WorldBorders borders)

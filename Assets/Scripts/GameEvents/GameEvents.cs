@@ -2,13 +2,13 @@ using System;
 
 public class GameEvents
 {
-    public event Action PlayerDied;
     public event Action DifficultyUpdated;
-    public event Action GameStarted;
+    public event Action GameEnded;
 
     public void OnPlayerDied()
     {
-        PlayerDied?.Invoke();
+        GameEnded?.Invoke();
+        SceneSwitcher.LoadEndScreen();
     }
 
     public void OnDifficultyUpdated()

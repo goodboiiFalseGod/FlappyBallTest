@@ -12,13 +12,13 @@ public class Player : MonoBehaviour
     private float _currentFallSpeed;
 
     [Inject]
-    private void Construct(PlayerInputEvents inputEvents, GameDifficultySettings difficulty, GameEvents gameEvents)
+    private void Construct(PlayerInputEvents inputEvents, GameSettings difficulty, GameEvents gameEvents)
     {
         _inputEvents = inputEvents;
-        _difficulty = difficulty;
+        _difficulty = difficulty.GetCurrentDifficulty();
         _gameEvents = gameEvents;
 
-        _baseFallSpeed = difficulty.BaseFallSpeed;
+        _baseFallSpeed = _difficulty.BaseFallSpeed;
         _currentFallSpeed = _baseFallSpeed;
 
         _inputEvents.UpPressed += OnUpButtonPressed;

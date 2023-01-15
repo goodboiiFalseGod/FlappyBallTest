@@ -5,10 +5,10 @@ public class Obstacle : MonoBehaviour
     private GameDifficultySettings _difficulty;
     private WorldBorders _borders;
 
-    public void Init(WorldBorders borders, GameDifficultySettings difficulty)
+    public void Init(WorldBorders borders, GameDifficultySettings settings)
     {
         _borders = borders;
-        _difficulty = difficulty;
+        _difficulty = settings;
     }
 
     private void Update()

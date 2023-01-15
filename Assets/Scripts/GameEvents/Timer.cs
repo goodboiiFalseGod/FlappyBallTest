@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -7,6 +5,7 @@ public class Timer : MonoBehaviour
 {
     private GameDifficultySettings _difficulty;
     private GameEvents _gameEvents;
+    private TimeRecords _timeRecords;
     private float _currentTimer = 0;
     private float _maxTimer;
 
@@ -15,15 +14,16 @@ public class Timer : MonoBehaviour
     public float StartTime { get { return _startTime; } }
 
     [Inject]
-    private void Construct(GameDifficultySettings difficulty, GameEvents gameEvents)
+    private void Construct(GameSettings difficulty, GameEvents gameEvents, TimeRecords timeRecords)
     {
-        _difficulty = difficulty;
+        _difficulty = difficulty.GetCurrentDifficulty();
         _gameEvents = gameEvents;
+        _timeRecords = timeRecords;
 
         _maxTimer = _difficulty.DifficultyUpdateTime;
-        _gameEvents.GameStarted += OnGameStarted;
+        _gameEvents.GameEnded += OnGameEnd;
     }
-
+    
     private void Update()
     {
         _currentTimer += Time.deltaTime;
@@ -34,8 +34,9 @@ public class Timer : MonoBehaviour
         _currentTimer = 0;
     }
 
-    private void OnGameStarted()
+    private void OnGameEnd()
     {
         _startTime = Time.time;
+        _timeRecords.SetLevelTtme(_startTime);
     }
 }

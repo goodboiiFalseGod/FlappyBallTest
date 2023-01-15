@@ -5,10 +5,10 @@ using Zenject;
 
 public class DifficultiesInstaller : MonoInstaller
 {
-    [SerializeField] private GameDifficultySettings _gameDifficultySettings;
+    [SerializeField] private GameSettings _gameSettings;
 
     public override void InstallBindings()
     {
-        Container.Bind<GameDifficultySettings>().FromInstance(_gameDifficultySettings).AsSingle();
+        Container.Bind<GameSettings>().FromInstance(_gameSettings).AsSingle();
     }
 }

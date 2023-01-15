@@ -272,5 +272,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab7679dc1622424387f03782f384d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollRectPrefab: {fileID: 5280405860570026237, guid: 66be7164ad5cc5744940f5d3d3f192cd, type: 3}
+  _difficultyScreenPrefab: {fileID: 5280405860570026224, guid: 66be7164ad5cc5744940f5d3d3f192cd, type: 3}
   _button: {fileID: 1805191485310207151}

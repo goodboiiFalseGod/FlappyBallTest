@@ -14,6 +14,6 @@ public static class SceneSwitcher
 
     public static void LoadEndScreen()
     {
-
+        SceneManager.LoadSceneAsync("FinishScreen");
     }
 }

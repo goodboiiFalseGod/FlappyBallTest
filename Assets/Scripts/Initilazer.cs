@@ -8,12 +8,12 @@ public class Initilazer : MonoBehaviour
     [SerializeField] private LinesInitilizer _linesInitilizer;
     private PlayerInitilazer _playerInitilazer; 
     private ObstaclesManager _obstaclesManager;
-    private GameDifficultySettings _gameDifficultyDifficulty;
+    private GameSettings _settings;
 
     [Inject]
-    private void Construct(GameDifficultySettings difficulty, ObstaclesManager obstaclesManager, PlayerInitilazer playerInitilazer)
+    private void Construct(GameSettings settings, ObstaclesManager obstaclesManager, PlayerInitilazer playerInitilazer)
     {
-        _gameDifficultyDifficulty = difficulty;
+        _settings = settings;
         _obstaclesManager = obstaclesManager;
         _playerInitilazer = playerInitilazer;
     }
@@ -21,7 +21,7 @@ public class Initilazer : MonoBehaviour
     private void Awake()
     {
         var borders = ScreenCalculations.GetScreenToWorldPositions();
-        _linesInitilizer.Init(borders, _gameDifficultyDifficulty);
+        _linesInitilizer.Init(borders, _settings);
         _playerInitilazer.Init(borders);
         _obstaclesManager.Init(borders);
     }

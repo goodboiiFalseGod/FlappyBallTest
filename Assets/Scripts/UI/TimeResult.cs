@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class TimeResult : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TextMeshProUGUI _text;
+    private TimeRecords _records;
 
-    // Update is called once per frame
-    void Update()
+    [Inject]
+    private void Construct(TimeRecords timeRecords)
     {
-        
+        _records = timeRecords;
+        _text.text = _records.GetLevelTtme().ToString() + " seconds";
     }
 }

@@ -6,7 +6,7 @@ public class LinesInitilizer : MonoBehaviour
 {
     [SerializeField] private LineObstacle _lineObstaclePrefab;
 
-    public void Init(WorldBorders borders, GameDifficultySettings difficulty)
+    public void Init(WorldBorders borders, GameSettings difficulty)
     {
         List<Vector2> _linesPositions = new List<Vector2>();
         
@@ -18,7 +18,7 @@ public class LinesInitilizer : MonoBehaviour
         foreach (var position in _linesPositions)
         {
             LineObstacle line = Instantiate(_lineObstaclePrefab, position, new Quaternion());
-            line.Init(borders, difficulty);
+            line.Init(borders, difficulty.GetCurrentDifficulty());
         }
     }
 }

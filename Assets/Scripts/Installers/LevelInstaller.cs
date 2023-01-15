@@ -13,8 +13,8 @@ public class LevelInstaller : MonoInstaller
         GameEvents gameEvents = new GameEvents(); 
         Container.Bind<PlayerInputEvents>().FromInstance(_playerInputEvents).AsSingle();
         Container.Bind<PlayerInitilazer>().FromInstance(_playerInitilazer).AsSingle();
-        Container.Bind<Timer>().FromInstance(_timer).AsSingle();
         Container.Bind<GameEvents>().FromInstance(gameEvents).AsSingle();
         Container.Bind<ObstaclesManager>().FromInstance(_obstaclesManager).AsSingle();
+        Container.Bind<Timer>().FromInstance(_timer).AsSingle();
     }
 }
